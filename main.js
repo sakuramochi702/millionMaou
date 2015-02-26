@@ -35,8 +35,6 @@ function loadData() {
 
 function clickEvent(){
 	pName = document.getElementById("name").value;
-	remain--;
-	txtCount.innerHTML=String(remain);
 	attack();
 	//addConsole(pName);
 }
@@ -48,8 +46,9 @@ function attack(){
 }
 
 maoDataStore.on("push",function(data){
-	//他の人が更新した情報をここで受け取る
+	//他の人が更新した場合もここで受け取れる
 	remain--;
+	txtCount.innerHTML=String(remain);
 	addConsole(data.value.name);
 });
 

@@ -9,13 +9,14 @@
 </head>
 <body>
 	<div id="container">
-		<p><font id="title">ミリオンまおう</font></p>
-		<p><img id="mao" border="0" src="/mao.png" width="400" height="400" alt="image is not found!"></p>
-		<p><font>残りHP: </font><font id="count">1000000</font></p>
+		<p id="title"><h3>ミリオンまおう</h3></p>
+		<p><img id="mao" border="1" src="mao.png" width="400" height="300" alt="image is not found!"></p>
+		<p><font>残りHP: </font><font id="count">1000000</font><font> / 1000000</font></p>
 		<p class="button" onClick="clickEvent()">こうげき</p>
 	</div>
-	<div id="profile">
-		<p>なまえを入力してください ⇒ <input type="text" id="name" size="4" value="ゆうしや"></p>
+	<div id="console_hd">
+		<p id="profile">なまえを入力してください ⇒ <input type="text" id="name" size="10" maxlength="6" value="ゆうしや"></p>
+		<p id="about">このページについて</p>
 	</div>
 	<div id="console">
 		<ul id="board"></ul>
