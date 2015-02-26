@@ -1,0 +1,58 @@
+body {
+	background-color: white;
+	color: black;
+	margin: 0 auto;
+	padding:0;
+	font-family: Verdana, sans-serif;
+}
+
+div#container {
+	text-align: center;
+}
+
+.button {
+	background: #b22222;
+	border-style: solid;
+	border-width: thick;
+	border-color: #b22222;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	margin: 30px auto;
+	color: #ffffff;
+	border-radius: 50%;
+	cursor: pointer;
+	-webkit-translation: all 0.2s;
+	-moz-translation: all 0.2s;
+	-ms-translation: all 0.2s;
+	-o-translation: all 0.2s;
+	translation: all 0.2s;
+}
+
+.button:active {
+	background: white;
+	color: #b22222;
+}
+
+div#profile {
+	margin-left: 0px;
+	margin-bottom: 10px;
+	padding-left: 8px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	width: 280px;
+	border-style: solid;
+	border-width: thick;
+	border-color: #dddddd;
+}
+
+div#console {
+	text-align: left;
+	width: 99%;
+	height: 150px;
+	overflow-y: scroll;
+	border-style: double;
+	border-width: thick;
+	border-color: #cccccc;
+	padding-left: 5px;
+}
