@@ -43,3 +43,7 @@ Temporary Items
 .apdisk
 
 *.un~
+*.html~
+*.js~
+*.css~
+*.swp

@@ -13,13 +13,11 @@ window.onload = function(){
 
 function loadData() {
 	var query = maoDataStore.query();
-	query.limit(1000000);
+	query.sort("desc").limit(1);
 	query.done(function(data) {
-		var count = 0;
-		for (var i=0; i<data.length; i++) {
-			count++
-		}
-		remain = 1000000 - count;
+		data.forEach(function(value) {
+			remain = Number(value.hp);
+		});
 		txtCount.innerHTML=String(remain);
 		//コンソールの初期化
 		var msgDom = document.createElement("p");
@@ -42,9 +40,10 @@ function clickEvent(){
 
 function attack(){
 	if (remain > 0) {
-		maoDataStore.push({name : pName},function(data){
-			console.log("送信OK!");
-		});
+		maoDataStore.push({name : pName, hp : String(remain-1)},
+			function(data){
+				console.log("送信OK!");
+			});
 	} else {
 		var msgDom = document.createElement("p");
 		msgDom.innerHTML = "ミリオンまおうはすでに倒されている。";
