@@ -6,7 +6,13 @@ body {
 	font-family: Verdana, sans-serif;
 }
 
-div#container {
+div#header {
+	text-align: right;
+	font-size: 6px;
+	padding-right: 8px;
+}
+
+div#main {
 	text-align: center;
 }
 
@@ -41,28 +47,25 @@ img {
 
 div#console_hd {
 	margin-left: 0px;
-	margin-bottom: 5px;
 }
 
 p#profile {
-	display: inline-block;
+	display: inline;
+	border-style: solid;
+	border-width: thick;
+	border-color: #dddddd;
 	padding-left: 8px;
 	padding-right: 8px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	width: 400px;
-	border-style: solid;
-	border-width: thick;
-	border-color: #dddddd;
 }
 
-p#about {
-	display: inline-block;
-	width: 200px;
-	float: right;;
+input#name {
+	width: auto;
 }
 
 div#console {
+	margin-top: 5px;
 	text-align: left;
 	width: 99%;
 	height: 150px;
@@ -71,4 +74,8 @@ div#console {
 	border-width: thick;
 	border-color: #cccccc;
 	padding-left: 5px;
+}
+
+div#about {
+	padding-left: 10px;
 }

@@ -1,6 +1,6 @@
 var milkcocoa = new MilkCocoa("https://io-ri6ltx43y.mlkcca.com/");
 /* your-app-id にアプリ作成時に発行される"io-"から始まるapp-idを記入します */
-var maoDataStore = milkcocoa.dataStore("tamago");
+var maoDataStore = milkcocoa.dataStore("mao");
 var imgMao, txtCount, pName, board;
 var remain=1000000;
 
@@ -21,16 +21,17 @@ function loadData() {
 		}
 		remain = 1000000 - count;
 		txtCount.innerHTML=String(remain);
-
-	});
-	//コンソールの初期化
-	var msgDom = document.createElement("p");
-	if (remain == 0) {
-		msgDom.innerHTML = "ミリオンまおうはすでに滅びた。世界は平和になったのだ。";
-	} else {
-		msgDom.innerHTML = "ミリオンまおうがあらわれた！";
-	}
-	board.insertBefore(msgDom, board.firstChild);
+		//コンソールの初期化
+		var msgDom = document.createElement("p");
+		if (remain <= 0) {
+			msgDom.innerHTML = "ミリオンまおうはすでに滅びた。世界は平和になったのだ…。";
+			document.getElementById("mao").src="end.png";
+		} else {
+			msgDom.innerHTML = "ミリオンまおうがあらわれた！";
+			document.getElementById("mao").src="mao.png";
+		}
+		board.insertBefore(msgDom, board.firstChild);
+		});
 }
 
 function clickEvent(){
@@ -40,9 +41,15 @@ function clickEvent(){
 }
 
 function attack(){
-	maoDataStore.push({name : pName},function(data){
-		console.log("送信OK!");
-	});
+	if (remain > 0) {
+		maoDataStore.push({name : pName},function(data){
+			console.log("送信OK!");
+		});
+	} else {
+		var msgDom = document.createElement("p");
+		msgDom.innerHTML = "ミリオンまおうはすでに倒されている。";
+		board.insertBefore(msgDom, board.firstChild);	
+	}
 }
 
 maoDataStore.on("push",function(data){
@@ -54,6 +61,13 @@ maoDataStore.on("push",function(data){
 
 function addConsole(name) {
 	var msgDom = document.createElement("p");
-	msgDom.innerHTML = name + "のこうげき！ まおうに 1 のダメージ！"
-	board.insertBefore(msgDom, board.firstChild);		
+	msgDom.innerHTML = name + "のこうげき！ まおうに 1 のダメージ！";
+	board.insertBefore(msgDom, board.firstChild);
+
+	if (remain <= 0) {
+		var msgDom2 = document.createElement("p");
+		msgDom2.innerHTML = "ミリオンまおうをやっつけた！";
+		board.insertBefore(msgDom2, board.firstChild);
+		document.getElementById("mao").src="end.png";
+	}
 }
