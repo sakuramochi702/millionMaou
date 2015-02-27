@@ -14,10 +14,16 @@ window.onload = function(){
 function loadData() {
 	var query = maoDataStore.query();
 	query.sort("desc").limit(1);
+	//query.limit(1000000);
 	query.done(function(data) {
 		data.forEach(function(value) {
 			remain = Number(value.hp);
 		});
+		//var count = 0;
+		/*for (var i=0; i<data.length; i++) {
+			count++
+		}*/
+		//remain = 1000000 - count;
 		txtCount.innerHTML=String(remain);
 		//コンソールの初期化
 		var msgDom = document.createElement("p");
@@ -29,13 +35,12 @@ function loadData() {
 			document.getElementById("mao").src="mao.png";
 		}
 		board.insertBefore(msgDom, board.firstChild);
-		});
+	});
 }
 
 function clickEvent(){
 	pName = document.getElementById("name").value;
 	attack();
-	//addConsole(pName);
 }
 
 function attack(){
